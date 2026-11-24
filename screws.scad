@@ -1526,7 +1526,7 @@ module screw_head(screw_info,details=false, counterbore=0,flat_height,teardrop=f
              cyl(l=base, d1=head_size, d2=head_size2,anchor=BOTTOM, $fn=segs)
                attach(TOP)
                  zrot(180) // Needed to align facets when $fn is odd
-                 rotate_extrude($fn=segs)  // ensure same number of segments for cap as for head body
+                 rotate_extrude(start=180, $fn=segs)  // ensure same number of segments for cap as for head body
                    intersection(){
                      arc(points=[[-head_size2/2,0], [0,-base+head_height * (head=="button"?4/3:1)], [head_size2/2,0]]);
                      square([head_size2, head_height-base]);
